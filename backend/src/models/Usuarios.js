@@ -10,10 +10,18 @@ export const Usuario = sequelize.define('Usuario', {
   rol_idrol: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: 'rol',
+      key: 'idrol',
+    },
   },
   estados_idestados: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: 'estados',
+      key: 'idestados',
+    },
   },
   correo_electronico: {
     type: DataTypes.STRING(45),
@@ -24,14 +32,14 @@ export const Usuario = sequelize.define('Usuario', {
     type: DataTypes.STRING(245),
   },
   contrasena: {
-    type: DataTypes.STRING(45),
+    type: DataTypes.STRING(100),
     allowNull: false,
   },
   telefono: {
     type: DataTypes.STRING(45),
   },
   fecha_nacimiento: {
-    type: DataTypes.DATEONLY,
+    type: DataTypes.DATEONLY, 
   },
   fecha_creacion: {
     type: DataTypes.DATE,
@@ -39,6 +47,10 @@ export const Usuario = sequelize.define('Usuario', {
   },
   Clientes_idCliente: {
     type: DataTypes.INTEGER,
+    references: {
+      model: 'Clientes',
+      key: 'idCliente',
+    },
   },
 }, {
   timestamps: false,
