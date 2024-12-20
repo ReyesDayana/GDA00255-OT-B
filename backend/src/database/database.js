@@ -1,7 +1,9 @@
 import { Sequelize } from "sequelize";
+import dotenv from 'dotenv';
 
-export const sequelize = new Sequelize('GDA00255OT_DayanaReyes', 'usuario', '123456', {
+dotenv.config();
+
+export const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
     host: 'localhost',
-    dialect: 'mssql',
-    port: 1433
+    dialect: 'mssql'
 });
