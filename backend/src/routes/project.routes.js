@@ -4,6 +4,8 @@ import { getEstados,getEstadoById,createEstado,updateEstado,deleteEstado,} from 
 import {getProductos,getProductoById,createProducto,updateProducto,deleteProducto,} from '../controllers/productos.controller.js';
 import { getCategorias,getCategoriaById,createCategoria,updateCategoria,deleteCategoria,} from '../controllers/categorias.controller.js'
 import {getClientes,getClienteById,createCliente,updateCliente,deleteCliente,} from '../controllers/clientes.controller.js';
+import {getOrdenes,getOrdenById,createOrden,updateOrden,deleteOrden,} from '../controllers/orden.controller.js';
+
 const router = Router();
 
 // Rutas para Usuarios
@@ -42,5 +44,13 @@ router.get('/clientes/:id', getClienteById);
 router.post('/clientes', createCliente);        
 router.put('/clientes/:id', updateCliente);   
 router.delete('/clientes/:id', deleteCliente); 
+
+// Rutas Orden
+router.get('/ordenes', getOrdenes);           
+router.get('/ordenes/:id', getOrdenById);    
+router.post('/ordenes', createOrden);         
+router.put('/ordenes/:id', updateOrden);     
+router.delete('/ordenes/:id', deleteOrden);
+
 
 export default router;

@@ -1,7 +1,9 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../database/database.js';
+import { Producto } from './Productos.js';
+import { Orden } from './Orden.js';
 
-export const OrdenDetalles = sequelize.define('OrdenDetalles', {
+export const OrdenDetalle = sequelize.define('OrdenDetalle', {
   idOrdenDetalles: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -10,10 +12,18 @@ export const OrdenDetalles = sequelize.define('OrdenDetalles', {
   Orden_idOrden: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: Orden,
+      key: 'idOrden',
+    },
   },
   Productos_idProductos: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: Producto,
+      key: 'idProductos',
+    },
   },
   cantidad: {
     type: DataTypes.INTEGER,
@@ -36,3 +46,7 @@ export const OrdenDetalles = sequelize.define('OrdenDetalles', {
   timestamps: false,
   tableName: 'OrdenDetalles',
 });
+
+// Relaciones
+OrdenDetalle.belongsTo(Orden, { foreignKey: 'Orden_idOrden' });
+OrdenDetalle.belongsTo(Producto, { foreignKey: 'Productos_idProductos' });
