@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../database/database.js';
-import { Usuario } from './Usuario.js';
-import { Estado } from './Estado.js';
+import { Usuario } from './Usuarios.js';
+import { Estado } from './Estados.js';
 
 export const Orden = sequelize.define('Orden', {
   idOrden: {
