@@ -3,7 +3,7 @@ import {getUsuarios, getUsuarioById,createUsuario, updateUsuario} from '../contr
 import { getEstados,getEstadoById,createEstado,updateEstado,deleteEstado,} from '../controllers/estados.controller.js';
 import {getProductos,getProductoById,createProducto,updateProducto,deleteProducto,} from '../controllers/productos.controller.js';
 import { getCategorias,getCategoriaById,createCategoria,updateCategoria,deleteCategoria,} from '../controllers/categorias.controller.js'
-
+import {getClientes,getClienteById,createCliente,updateCliente,deleteCliente,} from '../controllers/clientes.controller.js';
 const router = Router();
 
 // Rutas para Usuarios
@@ -35,5 +35,12 @@ router.get('/categorias/:id', getCategoriaById);
 router.post('/categorias', createCategoria);       
 router.put('/categorias/:id', updateCategoria);     
 router.delete('/categorias/:id', deleteCategoria);  
+
+// Rutas Clientes
+router.get('/clientes', getClientes);           
+router.get('/clientes/:id', getClienteById);  
+router.post('/clientes', createCliente);        
+router.put('/clientes/:id', updateCliente);   
+router.delete('/clientes/:id', deleteCliente); 
 
 export default router;

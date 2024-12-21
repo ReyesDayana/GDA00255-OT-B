@@ -9,21 +9,27 @@ export const Cliente = sequelize.define('Cliente', {
   },
   razon_social: {
     type: DataTypes.STRING(245),
+    allowNull: true,
   },
   nombre_comercial: {
     type: DataTypes.STRING(345),
+    allowNull: true,
   },
   direccion_entrega: {
     type: DataTypes.STRING(45),
+    allowNull: false,
   },
   telefono: {
-    type: DataTypes.CHAR(8),
+    type: DataTypes.STRING(8),
+    allowNull: false,
     validate: {
       isNumeric: true,
+      len: [8, 8],
     },
   },
   email: {
     type: DataTypes.STRING(45),
+    allowNull: false,
     validate: {
       isEmail: true,
     },
