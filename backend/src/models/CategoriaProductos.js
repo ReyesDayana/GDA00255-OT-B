@@ -1,5 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { sequelize } from '../database/database.js';
+import { Usuario } from './Usuarios.js';
+import { Estado } from './Estados.js';
 
 export const CategoriaProducto = sequelize.define('CategoriaProducto', {
   idCategoriaProductos: {
@@ -10,6 +12,10 @@ export const CategoriaProducto = sequelize.define('CategoriaProducto', {
   usuarios_idusuarios: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: Usuario,
+      key: 'idusuarios',
+    },
   },
   nombre: {
     type: DataTypes.STRING(45),
@@ -18,6 +24,10 @@ export const CategoriaProducto = sequelize.define('CategoriaProducto', {
   estados_idestados: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    references: {
+      model: Estado,
+      key: 'idestados',
+    },
   },
   fecha_creacion: {
     type: DataTypes.DATE,
@@ -27,3 +37,7 @@ export const CategoriaProducto = sequelize.define('CategoriaProducto', {
   timestamps: false,
   tableName: 'CategoriaProductos',
 });
+
+// Relaciones
+CategoriaProducto.belongsTo(Usuario, { foreignKey: 'usuarios_idusuarios' });
+CategoriaProducto.belongsTo(Estado, { foreignKey: 'estados_idestados' });
