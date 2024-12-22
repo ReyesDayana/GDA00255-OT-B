@@ -5,6 +5,7 @@ import {getProductos,getProductoById,createProducto,updateProducto,deleteProduct
 import { getCategorias,getCategoriaById,createCategoria,updateCategoria,deleteCategoria,} from '../controllers/categorias.controller.js'
 import {getClientes,getClienteById,createCliente,updateCliente,deleteCliente,} from '../controllers/clientes.controller.js';
 import {getOrdenes,getOrdenById,createOrden,updateOrden,deleteOrden,} from '../controllers/orden.controller.js';
+import { login } from '../controllers/auth.controller.js';
 
 const router = Router();
 
@@ -39,7 +40,7 @@ router.put('/categorias/:id', updateCategoria);
 router.delete('/categorias/:id', deleteCategoria);  
 
 // Rutas Clientes
-router.get('/clientes', getClientes);           
+router.get('/clientes', authMiddleware, getClientes);       
 router.get('/clientes/:id', getClienteById);  
 router.post('/clientes', createCliente);        
 router.put('/clientes/:id', updateCliente);   
@@ -52,5 +53,7 @@ router.post('/ordenes', createOrden);
 router.put('/ordenes/:id', updateOrden);     
 router.delete('/ordenes/:id', deleteOrden);
 
+//Ruta Login
+router.post('/login', login);
 
 export default router;
