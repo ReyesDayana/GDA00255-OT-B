@@ -27,7 +27,6 @@ export const Orden = sequelize.define('Orden', {
   },
   fecha_creacion: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW, // Configura la fecha por defecto
   },
   nombre_completo: {
     type: DataTypes.STRING(245),

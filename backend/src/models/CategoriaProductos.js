@@ -31,7 +31,6 @@ export const CategoriaProducto = sequelize.define('CategoriaProducto', {
   },
   fecha_creacion: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
   },
 }, {
   timestamps: false,

@@ -59,7 +59,7 @@ export const Producto = sequelize.define('Producto', {
   },
   fecha_creacion: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
+
   },
   foto: {
     type: DataTypes.BLOB,

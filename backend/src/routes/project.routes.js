@@ -6,6 +6,7 @@ import { getCategorias,getCategoriaById,createCategoria,updateCategoria,deleteCa
 import {getClientes,getClienteById,createCliente,updateCliente,deleteCliente,} from '../controllers/clientes.controller.js';
 import {getOrdenes,getOrdenById,createOrden,updateOrden,deleteOrden,} from '../controllers/orden.controller.js';
 import { login } from '../controllers/auth.controller.js';
+import { authMiddleware } from '../controllers/middleware/auth.middleware.js';
 
 const router = Router();
 

@@ -43,7 +43,6 @@ export const Usuario = sequelize.define('Usuario', {
   },
   fecha_creacion: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
   },
   Clientes_idCliente: {
     type: DataTypes.INTEGER,
